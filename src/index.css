@@ -1,0 +1,48 @@
+html, body, #root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: darkslategrey;
+}
+
+button {
+    font-size: 26px;
+    padding: 0.5em 1em;
+    background-color: dodgerblue;
+    border: 0.1em solid lightgrey;
+    border-radius: 5px;
+    cursor: pointer;
+    color: lightgrey;
+    transition: .1s;
+}
+
+button:hover {
+    background-color: cadetblue;
+}
+
+button:first-child:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+button:last-child:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+input {
+    border: 0.1em solid lightgrey;
+    font-size: 26px;
+    background-color: white;
+    color: black;
+    padding: 0.5em;
+}
+
+.hidden {
+    display: none;
+}

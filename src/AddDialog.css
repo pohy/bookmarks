@@ -1,0 +1,18 @@
+.AddDialog {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+}
+
+
+
+.AddDialog > input {
+    flex-grow: 1;
+    transition: .5s;
+}
+
+.AddDialog > button {
+    transition: .5s;
+}
