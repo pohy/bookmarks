@@ -39,7 +39,6 @@ class App extends Component {
 
     removeBookmark = (index) => () => {
         bookmarkStorage.remove(index);
-        this.reloadBookmarks();
     };
 
     render() {

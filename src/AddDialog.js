@@ -17,6 +17,8 @@ class AddDialog extends Component {
             url: '',
             name: ''
         };
+
+        document.addEventListener('keydown', this.onGlobalKey)
     }
 
     componentWillReceiveProps(props) {
@@ -24,6 +26,12 @@ class AddDialog extends Component {
             setTimeout(() => this.urlInput.focus(), 0);
         }
     }
+
+    onGlobalKey = (event) => {
+        if (event.key === 'Escape') {
+            this.props.onCancel();
+        }
+    };
 
     add = () => {
         const {name, url} = this.state;
