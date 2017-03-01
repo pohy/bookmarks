@@ -6,13 +6,37 @@
     display: flex;
 }
 
-
-
-.AddDialog > input {
+.AddDialog-inputWrapper {
     flex-grow: 1;
-    transition: .5s;
+    display: flex;
 }
 
-.AddDialog > button {
+.AddDialog-shown {
     transition: .5s;
+    margin-left: 0;
+}
+
+.AddDialog-hidden {
+    transition: .5s;
+    margin-left: -100%;
+}
+
+.AddDialog> input {
+    flex-grow: 1;
+    transition: .2s;
+}
+
+.AddDialog button {
+    transition: .2s;
+    font-size: 36px;
+    line-height: 18px;
+    vertical-align: middle;
+}
+
+.AddDialog button:first-child {
+    border-bottom-left-radius: 0;
+}
+
+.AddDialog button:last-child {
+    border-bottom-right-radius: 0;
 }
