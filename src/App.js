@@ -12,10 +12,12 @@ class App extends Component {
             bookmarks: bookmarkStorage.getAll(),
             showRemove: false
         };
+
+        bookmarkStorage.registerOnChangeListener(this.onBookmarksChange);
     }
 
-    reloadBookmarks = () => {
-        this.setState({bookmarks: bookmarkStorage.getAll()})
+    onBookmarksChange = (bookmarks) => {
+        this.setState({bookmarks})
     };
 
     toggleShowRemove = (hidden) => {
@@ -35,7 +37,7 @@ class App extends Component {
                 {this.state.bookmarks.map((bookmark, i) =>
                     <Bookmark bookmark={bookmark} showRemove={showRemove} key={i} onRemove={this.removeBookmark(i)}/>)
                 }
-                <AddDialog onBookmarkAdd={this.reloadBookmarks} onHiddenChange={this.toggleShowRemove}/>
+                <AddDialog onHiddenChange={this.toggleShowRemove}/>
             </div>
         );
     }

@@ -7,12 +7,10 @@ import './AddDialog.css';
 
 class AddDialog extends Component {
     static propTypes = {
-        onBookmarkAdd: React.PropTypes.func,
         onHiddenChange: React.PropTypes.func
     };
 
     static defaultProps = {
-        onBookmarkAdd: () => {},
         onHiddenChange: () => {}
     };
 
@@ -41,7 +39,6 @@ class AddDialog extends Component {
     add = () => {
         bookmarkStorage.add(new Bookmark(this.state.url));
         this.setState({url: ''});
-        this.props.onBookmarkAdd();
     };
 
     setUrl = (event) => {
