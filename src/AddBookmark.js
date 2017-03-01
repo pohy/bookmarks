@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+import './AddBookmark.css'
+
 class AddBookmark extends Component {
     static propTypes = {
         onClick: React.PropTypes.func.isRequired

@@ -10,7 +10,7 @@ class BookmarkStorage {
 
     add(bookmark) {
         this.bookmarks.push(bookmark);
-        localStorage.set(this.bookmarksKey, this.bookmarks);
+        localStorage.set(this.LOCAL_STORAGE_KEY, this.bookmarks);
         this.notifyListeners();
     }
 

@@ -18,13 +18,12 @@ class Bookmark extends Component {
 
     render() {
         const {bookmark: {url, name}, showRemove} = this.props;
-        const hiddenClass = !showRemove && 'hidden';
-        // TODO: implement remove
-
+        const bookmarkClasses = `Bookmark ${showRemove ? 'Bookmark-remove' : ''}`;
         return (
-            <a className="Bookmark" href={url} onClick={this.remove}>
-                <h3 className="title">{name || url}</h3>
-                <p className={hiddenClass}>{'Click to remove'}</p>
+            <a className={bookmarkClasses} href={url} onClick={this.remove}>
+                <h3 className="title">
+                    {name || url}&nbsp;{showRemove ? <span>&times;</span> : ''}
+                </h3>
             </a>
         );
     }

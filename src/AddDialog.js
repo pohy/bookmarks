@@ -14,31 +14,54 @@ class AddDialog extends Component {
         super(props);
 
         this.state = {
-            url: ''
+            url: '',
+            name: ''
         };
     }
 
+    componentWillReceiveProps(props) {
+        if (!props.hidden) {
+            setTimeout(() => this.urlInput.focus(), 0);
+        }
+    }
+
     add = () => {
-        bookmarkStorage.add(new Bookmark(this.state.url));
-        this.setState({url: ''});
+        const {name, url} = this.state;
+        bookmarkStorage.add(new Bookmark(url, name));
+        this.setState({url: '', name: ''});
         this.props.onCancel();
     };
 
-    setUrl = (event) => {
-        this.setState({url: event.target.value});
+    onInput = (path) => (event) => {
+        this.setState({[path]: event.target.value});
     };
 
     onKeyPress = (event) => event.key === 'Enter' && this.add();
 
     render() {
-        const {url} = this.state;
+        const {url, name} = this.state;
         const {hidden, onCancel} = this.props;
         const addDialogClasses = `AddDialog ${hidden ? 'AddDialog-hidden' : 'AddDialog-shown'}`;
         return (
             <div className={addDialogClasses}>
-                <button onClick={onCancel}>&times;</button>
-                <input onChange={this.setUrl} onKeyPress={this.onKeyPress} value={url} type="text" autoFocus/>
-                <button onClick={this.add}>+</button>
+                <button onClick={onCancel} className="AddDialog-cancel">&times;</button>
+                <input
+                    ref={(input) => { this.urlInput = input; }}
+                    onChange={this.onInput('url')}
+                    onKeyPress={this.onKeyPress}
+                    value={url}
+                    type="text"
+                    placeholder="URL"
+                    autoFocus
+                />
+                <input
+                    onChange={this.onInput('name')}
+                    onKeyPress={this.onKeyPress}
+                    value={name}
+                    type="text"
+                    placeholder="Name"
+                />
+                <button onClick={this.add} className="AddDialog-add">+</button>
             </div>
         );
     }

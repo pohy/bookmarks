@@ -1,0 +1,9 @@
+.AddBookmark .title {
+    line-height: 8px;
+    font-size: 48px;
+    overflow: visible;
+}
+
+.AddBookmark:hover {
+    background-color: dodgerblue;
+}

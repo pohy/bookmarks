@@ -21,9 +21,23 @@
     margin-left: -100%;
 }
 
-.AddDialog> input {
+.AddDialog > input {
     flex-grow: 1;
     transition: .2s;
+}
+
+.AddDialog-cancel {
+    border-bottom-left-radius: 0;
+    background-color: indianred;
+}
+
+.AddDialog-add {
+    border-bottom-right-radius: 0;
+    background-color: forestgreen;
+}
+
+.AddDialog > input:first-of-type {
+    border-right: 1px solid grey;
 }
 
 .AddDialog button {
@@ -31,12 +45,4 @@
     font-size: 36px;
     line-height: 18px;
     vertical-align: middle;
-}
-
-.AddDialog button:first-child {
-    border-bottom-left-radius: 0;
-}
-
-.AddDialog button:last-child {
-    border-bottom-right-radius: 0;
 }
