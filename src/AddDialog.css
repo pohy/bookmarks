@@ -28,11 +28,11 @@
 
 .AddDialog-cancel {
     border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
     background-color: indianred;
 }
 
 .AddDialog-add {
-    border-bottom-right-radius: 0;
     background-color: forestgreen;
 }
 
